@@ -24,13 +24,13 @@ response = http.request(request)
 
 public_hostname = response.body
 
-execute "db create" do
-   command "wp db create"
-   cwd "#{wpdir}"
-   user "deploy"
-   action :run
-   ignore_failure true
-end
+#execute "db create" do
+#   command "wp db create"
+#   cwd "#{wpdir}"
+#   user "deploy"
+#   action :run
+#   ignore_failure true
+#end
 
 execute "wp deploy" do
    command "wp core install --url=#{public_hostname} --title=Test --admin_name=admin --admin_password=admin --admin_email=#{wp_admin_email}"
